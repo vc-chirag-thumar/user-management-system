@@ -1,51 +1,42 @@
 import { Component, OnInit } from '@angular/core';
-
-type User = Array<{ fullname: string; email: string; password: string }>;
+import { User, UserList } from 'src/app/core/models/user.model';
 
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.scss']
+  styleUrls: ['./signup.component.scss'],
 })
 export class SignupComponent {
-  user: User = [
+  // variables
+  user: User = 
     {
-    fullname: '',
-    email:  '',
-    password: ''
-  }
-]
+      fullname: '',
+      email: '',
+      password: '',
+    };
+  userList: UserList[] = [];
+  hide = true;
 
   
-
-
   
-
-  submit() {
+  //constructor (services)
+  constructor() {
     
   }
-
-  constructor() {
+  
+  //angular hooks
+  ngOnInit() {
+    
+    
+  }
+  
+  
+  //functions
+  submit() {
     localStorage.setItem('myLSkey', JSON.stringify(this.user));
     console.log(localStorage.getItem('myLSkey'));
-
-    
+    this.userList.push(this.user);
   }
 
-  hide = true;
-  
-  ngOnInit() {}
-
 }
-
-
-export interface Users {
-  fullname: string;
-  email: string;
-  password:string;
-}
-
-
-
-
 
