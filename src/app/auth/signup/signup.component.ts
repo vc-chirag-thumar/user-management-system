@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { User, UserList } from 'src/app/core/models/user.model';
 
 @Component({
@@ -6,7 +7,7 @@ import { User, UserList } from 'src/app/core/models/user.model';
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.scss'],
 })
-export class SignupComponent {
+export class SignupComponent implements OnInit {
   // variables
   user: User = 
     {
@@ -15,9 +16,7 @@ export class SignupComponent {
       password: '',
     };
   userList: UserList[] = [];
-  hide = true;
-
-  
+  hide = true; 
   
   //constructor (services)
   constructor() {
@@ -25,18 +24,20 @@ export class SignupComponent {
   }
   
   //angular hooks
-  ngOnInit() {
-    
+  ngOnInit():void {
     
   }
   
   
   //functions
-  submit() {
-    localStorage.setItem('myLSkey', JSON.stringify(this.user));
-    console.log(localStorage.getItem('myLSkey'));
-    this.userList.push(this.user);
+  submit(form:NgForm):void {
+    // localStorage.setItem('myLSkey', JSON.stringify(form.value));
+    // console.log(localStorage.getItem('myLSkey'));
+    this.userList.push(form.value);
+    console.log(this.userList);
+    form.reset();
   }
 
+ 
 }
 

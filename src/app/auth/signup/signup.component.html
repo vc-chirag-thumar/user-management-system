@@ -5,21 +5,21 @@
                 <h2 class="text-slate-600 text-lg mb-4 text-center font-bold">Sign Up</h2>
                 <mat-form-field class="w-full">
                     <mat-label>Full Name</mat-label>
-                    <input matInput  [(ngModel)]="user.fullname" name="fullname">
+                    <input matInput  [(ngModel)]="user.fullname" name="fullname" #fullname="ngModel">
                 </mat-form-field>
                 <mat-form-field class="w-full">
                     <mat-label>Enter your email</mat-label>
-                    <input matInput required [(ngModel)]="user.email" name="email">
+                    <input matInput required [(ngModel)]="user.email" name="email"  #email="ngModel">
                   </mat-form-field>
                 <mat-form-field class="w-full">
                     <mat-label>Enter your password</mat-label>
-                    <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="user.password" name="password">
+                    <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="user.password" name="password" #password="ngModel"> 
                     <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                     <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                     </button>
                 </mat-form-field>
                 <div class="flex justify-center">
-                    <button mat-raised-button color="accent" class="mx-auto" (click)="submit()">Signup</button>
+                    <button mat-raised-button color="accent" class="mx-auto" (click)="submit(newUserForm)">Signup</button>
                 </div>
             </form>
             
@@ -27,7 +27,7 @@
                 <li>{{user.fullname}}</li>
             </ul> -->
             <table class="w-full">
-                <tr *ngFor="let user of userList">
+                <tr *ngFor="let user of userList; let i=index">
                     <td>{{user.fullname}}</td>
                     <td>{{user.email}}</td>
                     <td>{{user.password}}</td>
