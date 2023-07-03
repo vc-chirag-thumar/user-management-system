@@ -9,6 +9,7 @@ import {MatCardModule} from '@angular/material/card';
 import { SignupComponent } from './signup/signup.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthRoutsModule } from '../routes/auth-routs/auth-routs.module';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -19,7 +20,7 @@ import { AuthRoutsModule } from '../routes/auth-routs/auth-routs.module';
   ],
   imports: [
     CommonModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatIconModule, MatCardModule, NgIf,
-    FormsModule, ReactiveFormsModule,AuthRoutsModule
+    FormsModule, ReactiveFormsModule,AuthRoutsModule, HttpClientModule
   ],
   exports:[
     LoginComponent,

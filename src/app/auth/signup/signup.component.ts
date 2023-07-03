@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { User, UserList } from 'src/app/core/models/user.model';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-signup',
@@ -19,13 +20,17 @@ export class SignupComponent implements OnInit {
   hide = true; 
   
   //constructor (services)
-  constructor() {
+  constructor(private http: HttpClient) {
     
   }
   
   //angular hooks
   ngOnInit():void {
-    
+    this.http
+  .get('http://localhost:3000/userList')
+  .subscribe((res: UserList[]) => {
+    this.userList = res
+  })
   }
   
   
