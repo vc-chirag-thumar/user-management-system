@@ -1,0 +1,13 @@
+<mat-form-field class="w-full">
+    <mat-label>Send message to Parent:</mat-label>
+    <input matInput placeholder="Enter Your msg"  #newMessage />
+</mat-form-field>
+<label>
+	 
+</label>
+
+<button mat-raised-button color="accent" class="mx-auto"
+	(click)="addNewMessage(newMessage.value)"
+>
+	Send Message to Parent
+</button>

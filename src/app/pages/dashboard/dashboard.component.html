@@ -1,3 +1,10 @@
-<div class="flex items-center justify-center h-full w-full">
-<p>dashboard works!</p>
+<div class="flex items-center justify-center h-full w-full flex-col">
+    <app-child-component
+        (newMessageEvent)="newMessage($event)" >
+    </app-child-component>
+    <br />
+Messages:
+<ul>
+  <li *ngFor="let message of messages">{{ message }}</li>
+</ul>
 </div>

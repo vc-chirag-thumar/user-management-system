@@ -10,6 +10,7 @@ import { SignupComponent } from './signup/signup.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthRoutsModule } from '../routes/auth-routs/auth-routs.module';
 import { HttpClientModule } from '@angular/common/http';
+import { UserListService } from '../services/user-list.service';
 
 
 
@@ -21,6 +22,9 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     CommonModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatIconModule, MatCardModule, NgIf,
     FormsModule, ReactiveFormsModule,AuthRoutsModule, HttpClientModule
+  ],
+  providers: [
+    UserListService
   ],
   exports:[
     LoginComponent,
