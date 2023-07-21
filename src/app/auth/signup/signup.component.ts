@@ -18,37 +18,28 @@ export class SignupComponent implements OnInit {
       password: '',
     };
   userList: UserList[] = [];
-  hide = true; 
-  form: any;
-  router: any;
-  ngZone: any;
-  UserListService: any;
+  hide = true;
+
+  newUserForm!:UserList[]
+  
+  
   
   //constructor (services)
-  constructor(private http: HttpClient) {
+  constructor() {
     
   }
   
   //angular hooks
   ngOnInit():void {
-    this.http.get('http://localhost:3000/posts').subscribe(res => {
-      console.log('res', res)
-    })
+    
   }
   
   
   //functions
-  submit(form:NgForm):void {
-    this.UserListService.CreateUser(this.form.value).subscribe((res: any) => {
-      console.log('Issue added!');
-      this.ngZone.run(() => this.router.navigateByUrl('/user'));
-      this.userList.push(form.value);
+  submit(f: NgForm):void {
+    this.userList.push(f.value);
     console.log(this.userList);
-    form.reset();
-    });
-
-    // localStorage.setItem('myLSkey', JSON.stringify(form.value));
-    // console.log(localStorage.getItem('myLSkey'));
+    f.resetForm();
     
   }
 
