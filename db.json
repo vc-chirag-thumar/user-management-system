@@ -1,0 +1,24 @@
+{
+  "user": [
+    {
+      "fullname": "chirag",
+      "email": "abc",
+      "password": "123"
+    },
+    {
+      "fullname": "Raj",
+      "email": "abc",
+      "password": "123"
+    },
+    {
+      "fullname": "Vraj",
+      "email": "abc",
+      "password": "123"
+    },
+    {
+      "fullname": "chirag",
+      "email": "abc",
+      "password": "123"
+    }
+  ]
+}

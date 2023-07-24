@@ -20,29 +20,28 @@ export class SignupComponent implements OnInit {
   userList: UserList[] = [];
   hide = true;
 
-  newUserForm!:UserList[]
+  //newUserForm!:UserList[]
   
   
   
   //constructor (services)
-  constructor() {
+  constructor(private _userService:UserListService) {
     
   }
   
   //angular hooks
   ngOnInit():void {
+    this._userService.getUserData()
     
   }
   
   
   //functions
-  submit(f: NgForm):void {
-    this.userList.push(f.value);
-    console.log(this.userList);
-    f.resetForm();
-    
+  submitForm(newUserForm:NgForm):void {
+    this._userService.postUserData(newUserForm.value)
+    .subscribe((data) => {
+      console.log(data);
+    });      
   }
-
- 
 }
 
