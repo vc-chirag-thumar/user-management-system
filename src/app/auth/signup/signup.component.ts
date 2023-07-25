@@ -37,10 +37,11 @@ export class SignupComponent implements OnInit {
   
   
   //functions
-  submitForm(newUserForm:NgForm):void {
-    this._userService.postUserData(newUserForm.value)
+  submitForm(param:NgForm):void {
+    this._userService.postUserData(param.value)
     .subscribe((data) => {
-      console.log(data);
+      console.log('Data send Successfully', data);
+      param.reset();
     });      
   }
 }

@@ -15,20 +15,20 @@ import { UserListService } from '../services/user-list.service';
 
 
 @NgModule({
-  declarations: [
-    LoginComponent,
-    SignupComponent
-  ],
-  imports: [
-    CommonModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatIconModule, MatCardModule, NgIf,
-    FormsModule, ReactiveFormsModule,AuthRoutsModule, HttpClientModule
-  ],
-  providers: [
-    UserListService
-  ],
-  exports:[
-    LoginComponent,
-    SignupComponent
-  ]
+    declarations: [
+        LoginComponent,
+        SignupComponent
+    ],
+    providers: [
+        UserListService
+    ],
+    exports: [
+        LoginComponent,
+        SignupComponent
+    ],
+    imports: [
+        CommonModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatIconModule, MatCardModule, NgIf,
+        FormsModule, ReactiveFormsModule, AuthRoutsModule, HttpClientModule
+    ]
 })
 export class AuthModule { }

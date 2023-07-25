@@ -1,10 +1,8 @@
-<div class="flex items-center justify-center h-full w-full flex-col">
-    <app-child-component
-        (newMessageEvent)="newMessage($event)" >
-    </app-child-component>
-    <br />
-Messages:
-<ul>
-  <li *ngFor="let message of messages">{{ message }}</li>
-</ul>
+<div class="px-4 pt-4">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>User List</mat-card-title>
+    </mat-card-header>
+  </mat-card>
 </div>
+<app-user-list></app-user-list>

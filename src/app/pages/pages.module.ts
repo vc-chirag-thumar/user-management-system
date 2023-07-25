@@ -14,12 +14,34 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatButtonModule} from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
+import { MatCardModule } from '@angular/material/card';
 
 
 
 @NgModule({
-  declarations: [PagesComponent, DashboardComponent, UserListComponent, ChildComponentComponent],
-  imports: [CommonModule, PagesRoutingModule, LayoutModule, MatTableModule, MatPaginatorModule, AuthModule, FormsModule, MatInputModule, MatFormFieldModule, MatButtonModule],
-  exports:[DashboardComponent, UserListComponent]
+  declarations: [
+    PagesComponent, 
+    DashboardComponent, 
+    UserListComponent, 
+    ChildComponentComponent
+  ],
+  imports: [
+    CommonModule, 
+    PagesRoutingModule, 
+    LayoutModule, 
+    MatTableModule, 
+    MatPaginatorModule, 
+    AuthModule, 
+    FormsModule, 
+    MatInputModule, 
+    MatFormFieldModule, 
+    MatButtonModule, 
+    MatCardModule
+  ],
+  exports:[
+    DashboardComponent, 
+    UserListComponent, 
+    PagesComponent
+  ]
 })
 export class PagesModule {}

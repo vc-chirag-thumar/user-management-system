@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { User, UserList } from '../core/models/user.model';
-import { NgForm } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
@@ -10,45 +9,17 @@ import { Observable } from 'rxjs';
 })
 export class UserListService {
    userList:UserList[] = [];
+   url:string = 'http://localhost:3000/user';
   
-  
-  constructor(private http:HttpClient) {
-    
-   }
-
-   
-
-  //  submitForm(f: NgForm):void {
-  //   const userList:UserList[] = [];
-  //   console.log(f.value);
-  //   this.userList.push(f.value);
-  //   console.log(this.userList);
-  // }
-
-  url:string = 'http://localhost:3000/user';
+  constructor(private http:HttpClient) {}
 
   getUserData(): Observable<any> {
    return this.http.get(this.url);
   }
   
-  postUserData(params:any): Observable<any> {
-    const headers = { 'content-type': 'application/json; charset=UTF-8'}
-    return this.http.post(this.url, params, {headers})
+  postUserData(params:User): Observable<any> {
+    return this.http.post(this.url, params);
    }
- 
-  
-  // addMember(f: NgForm) {
-  //   this.http.post(`${this.url}`, newUserForm).subscribe(
-  //     data => {
-  //       console.log('POST Request is successful ', data);
-  //     },
-  //     error => {
-  //       console.log('Error', error);
-  //     }
-  //   );
-  // }
-   
-
   
 }
 
