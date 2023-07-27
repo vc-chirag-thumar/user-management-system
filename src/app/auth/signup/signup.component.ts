@@ -15,10 +15,13 @@ export class SignupComponent implements OnInit {
     {
       fullname: '',
       email: '',
-      password: '',
+      password: ''
     };
   userList: UserList[] = [];
   hide = true;
+  
+
+  
 
   //newUserForm!:UserList[]
   
@@ -31,18 +34,23 @@ export class SignupComponent implements OnInit {
   
   //angular hooks
   ngOnInit():void {
-    this._userService.getUserData()
+    
+    this._userService.getUserData().subscribe((data) => {
+      this.userList = data;
+    });
     
   }
   
   
   //functions
+
+
   submitForm(param:NgForm):void {
     this._userService.postUserData(param.value)
     .subscribe((data) => {
-      console.log('Data send Successfully', data);
-      param.reset();
-    });      
+
+    });
   }
+  
 }
 

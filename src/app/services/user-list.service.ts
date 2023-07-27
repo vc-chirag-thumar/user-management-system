@@ -10,6 +10,7 @@ import { Observable } from 'rxjs';
 export class UserListService {
    userList:UserList[] = [];
    url:string = 'http://localhost:3000/user';
+  httpClient: any;
   
   constructor(private http:HttpClient) {}
 
@@ -19,8 +20,10 @@ export class UserListService {
   
   postUserData(params:User): Observable<any> {
     return this.http.post(this.url, params);
-   }
-  
+  }
+  loginData(){
+
+  }
 }
 
 
