@@ -24,7 +24,6 @@ export class LoginComponent implements OnInit {
     email: '',
     password: '',
   };
-  router: any;
 
   constructor(private _userService: UserListService) {}
 
@@ -34,24 +33,15 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  submitForm(param: NgForm) {
+  submitForm(param: NgForm):boolean | void {
     this.formValue = param.value;
+
     for (let user of this.userList) {
-      if (user.email === this.formValue.email) {
-        console.log('email matched');
-        this.obj = { ...user };
+      if (user.email === this.formValue.email && user.password === this.formValue.password) {
+        this.obj = { ...user};
         console.log(this.obj);
       }
     }
-
-    if (this.obj.password === this.formValue.password) {
-      console.log('Email and password are matched');
-      this.router.navigate(['/dashboard'])
-    } else {
-      console.log('Email or password not matched');
-    }
-
-    
     param.reset();
   }
 }

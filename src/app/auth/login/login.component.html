@@ -5,21 +5,34 @@
                 <h2 class="text-slate-600 text-lg mb-4 text-center font-bold">Login Form</h2>
                 <mat-form-field class="w-full">
                     <mat-label>Email</mat-label>
-                    <input matInput [(ngModel)]="user.email" name="email"  #email="ngModel">
+                    <input matInput [(ngModel)]="user.email" name="email"  #email="ngModel" [(ngModel)]="formValue.email">
+                    <div
+                        class="error-message"
+                        *ngIf="email.invalid && (email.dirty || email.touched)"
+                        >
+                        <div *ngIf="email.errors?.['required']">Email is required</div>
+                        <div *ngIf="email.errors?.['email']">Invalid email format</div>
+                    </div>
                 </mat-form-field>
                 <mat-form-field class="w-full">
                     <mat-label>Enter your password</mat-label>
-                    <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="user.password" name="password" #password="ngModel">
+                    <input matInput [type]="hide ? 'password' : 'text'"  name="password" #password="ngModel" [(ngModel)]="formValue.password">
                     <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                     <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                     </button>
+                    <div
+                        class="error-message"
+                        *ngIf="password.invalid && (password.dirty || password.touched)"
+                        >
+                        <div *ngIf="password.errors?.['required']">Email is required</div>
+                        <div *ngIf="password.errors?.['password']">Invalid email format</div>
+                    </div>
                 </mat-form-field>
                 <div class="flex justify-center">
                     <button mat-raised-button color="accent" class="mx-auto" (click)="submitForm(loginForm)">Login</button>
                 </div>
                 <div class="flex justify-center mt-2">
                     <a [routerLink]="'signup'" class="text-blue-500">You don't have account, Please Signup</a>
-                    <!-- <a [routerLink]="'dashboard'">Dashboard</a> -->
                 </div>
             </form>
         </mat-card>
