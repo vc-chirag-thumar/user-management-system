@@ -24,6 +24,7 @@ export class LoginComponent implements OnInit {
     email: '',
     password: '',
   };
+  isLoggedIn = false;
 
   constructor(private _userService: UserListService) {}
 
@@ -35,13 +36,27 @@ export class LoginComponent implements OnInit {
 
   submitForm(param: NgForm):boolean | void {
     this.formValue = param.value;
-
-    for (let user of this.userList) {
-      if (user.email === this.formValue.email && user.password === this.formValue.password) {
-        this.obj = { ...user};
-        console.log(this.obj);
-      }
+    const user = this.userList.find(x => x.email === this.formValue.email && x.password === this.formValue.password);
+    console.log(user);
+    if (!user){
+      console.log('invalid user');
+    } else {
+      console.log('Email and Password match');
     }
+
+
+    // for (let user of this.userList) {
+    //   if (user.email === this.formValue.email && user.password === this.formValue.password) {
+    //     this.obj = { ...user};
+    //     console.log(this.obj);
+    //     this.isLoggedIn = true;
+    //     console.log(this.isLoggedIn);
+    //   }
+    //   console.log(this.isLoggedIn);
+    // }
     param.reset();
+  }
+  isAuthenticated(): boolean {
+    return this.isLoggedIn;
   }
 }
