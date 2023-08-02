@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { User, UserList } from 'src/app/core/models/user.model';
 import { UserListService } from 'src/app/services/user-list.service';
 
@@ -26,7 +27,7 @@ export class LoginComponent implements OnInit {
   };
   isLoggedIn = false;
 
-  constructor(private _userService: UserListService) {}
+  constructor(private _userService: UserListService, private router: Router) {}
 
   ngOnInit(): void {
     this._userService.getUserData().subscribe((data) => {
@@ -38,8 +39,9 @@ export class LoginComponent implements OnInit {
     this.formValue = param.value;
     const user = this.userList.find(x => x.email === this.formValue.email && x.password === this.formValue.password);
     console.log(user);
-    if (!user){
+    if (user){
       console.log('invalid user');
+      this.router.navigate(['dashboard']);
     } else {
       console.log('Email and Password match');
     }

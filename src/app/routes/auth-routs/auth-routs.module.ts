@@ -11,7 +11,7 @@ export const routes: Routes = [
   },
   {
     path:'signup', component: SignupComponent
-  }
+  },
 ]
 
 @NgModule({
