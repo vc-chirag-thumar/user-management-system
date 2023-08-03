@@ -13,6 +13,7 @@ export class SignupComponent implements OnInit {
   // variables
   user: User = 
     {
+      id: 0,
       fullname: '',
       email: '',
       password: ''
@@ -47,9 +48,8 @@ export class SignupComponent implements OnInit {
 
   submitForm(param:NgForm):void {
     this._userService.postUserData(param.value)
-    .subscribe((data) => {
-
-    });
+    .subscribe((data) => {});
+    param.reset();
   }
   
 }

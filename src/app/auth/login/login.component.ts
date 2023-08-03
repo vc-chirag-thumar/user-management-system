@@ -11,21 +11,22 @@ import { UserListService } from 'src/app/services/user-list.service';
 })
 export class LoginComponent implements OnInit {
   user: User = {
+    id:0,    
     fullname: '',
     email: '',
     password: '',
   };
   userList: UserList[] = [];
-  obj = {
-    email: '',
-    password: '',
-  };
+  // obj = {
+  //   email: '',
+  //   password: '',
+  // };
   hide = true;
   formValue = {
     email: '',
     password: '',
   };
-  isLoggedIn = false;
+  isLoggedIn:boolean = true
 
   constructor(private _userService: UserListService, private router: Router) {}
 
@@ -36,29 +37,24 @@ export class LoginComponent implements OnInit {
   }
 
   submitForm(param: NgForm):boolean | void {
+    
     this.formValue = param.value;
-    const user = this.userList.find(x => x.email === this.formValue.email && x.password === this.formValue.password);
-    console.log(user);
-    if (user){
-      console.log('invalid user');
-      this.router.navigate(['dashboard']);
-    } else {
-      console.log('Email and Password match');
+    const person = this.userList.find(x => x.email === this.formValue.email && x.password === this.formValue.password);
+    console.log(person);
+    if (person){
+      console.log('valid Person');
+      this.isLoggedIn = true;
+      this.router.navigate(['/dashboard']);
+      
+    } else{
+     this.isLoggedIn = false;
     }
-
-
-    // for (let user of this.userList) {
-    //   if (user.email === this.formValue.email && user.password === this.formValue.password) {
-    //     this.obj = { ...user};
-    //     console.log(this.obj);
-    //     this.isLoggedIn = true;
-    //     console.log(this.isLoggedIn);
-    //   }
-    //   console.log(this.isLoggedIn);
-    // }
     param.reset();
   }
   isAuthenticated(): boolean {
+    console.log(this.isLoggedIn);
+    
     return this.isLoggedIn;
   }
+
 }

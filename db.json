@@ -19,11 +19,10 @@
       "password": "123"
     },
     {
-      "id": 4,
-      "fullname": "chirag",
-      "email": "bbb",
-      "password": "123"
+      "fullname": "Vishal Vanani",
+      "email": "vv@test.com",
+      "password": "123456",
+      "id": 6
     }
-
   ]
 }

@@ -9,20 +9,43 @@ import { UserListService } from 'src/app/services/user-list.service';
   templateUrl: './user-list.component.html',
   styleUrls: ['./user-list.component.scss'],
 })
-export class UserListComponent implements OnInit, AfterViewInit  {
-  userList: UserList[] = [];
+export class UserListComponent implements OnInit, AfterViewInit {
+  user: User = {
+    id: 0,
+    fullname: '',
+    email: '',
+    password: '',
+  };
+  userList: UserList[] = [
+    {
+      id: 0,
+      fullname: '',
+      email: '',
+      password: '',
+    },
+  ];
   itemCount = 0;
+  records: any[] = [];
 
-  displayedColumns: string[] = ['fullname', 'email', 'password'];
+  displayedColumns: string[] = [
+    'id',
+    'fullname',
+    'email',
+    'password',
+    'action',
+  ];
   dataSource = new MatTableDataSource<UserList>();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
-
-  
+  // user: any;
 
   constructor(private _userService: UserListService) {}
 
   ngOnInit() {
+    this.getUserList();
+  }
+
+  getUserList() {
     this._userService.getUserData().subscribe((data) => {
       this.userList = data;
       this.dataSource.data = this.userList;
@@ -33,6 +56,12 @@ export class UserListComponent implements OnInit, AfterViewInit  {
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
   }
-  
-}
 
+  deleteData(id: number) {
+    this.user.id = id;
+    console.log(this.user.id);
+    this._userService.deleteData(id).subscribe((record) => {
+      this.getUserList();
+    });
+  }
+}

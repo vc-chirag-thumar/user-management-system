@@ -15,6 +15,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatButtonModule} from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
+import {MatIconModule} from '@angular/material/icon';
 
 
 
@@ -36,12 +37,14 @@ import { MatCardModule } from '@angular/material/card';
     MatInputModule, 
     MatFormFieldModule, 
     MatButtonModule, 
-    MatCardModule
+    MatCardModule,
+    MatIconModule
   ],
   exports:[
     DashboardComponent, 
     UserListComponent, 
-    PagesComponent
+    PagesComponent,
+    MatIconModule
   ]
 })
 export class PagesModule {}
