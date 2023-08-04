@@ -8,7 +8,7 @@ import { LayoutModule } from '../layout/layout.module';
 import { UserListComponent } from './user-list/user-list.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { AuthModule } from '../auth/auth.module';
+
 import { ChildComponentComponent } from './dashboard/child-component/child-component.component';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -32,7 +32,6 @@ import {MatIconModule} from '@angular/material/icon';
     LayoutModule, 
     MatTableModule, 
     MatPaginatorModule, 
-    AuthModule, 
     FormsModule, 
     MatInputModule, 
     MatFormFieldModule, 

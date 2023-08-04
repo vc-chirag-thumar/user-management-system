@@ -1,7 +1,6 @@
 <div class="form-wrapper flex flex-auto min-h-screen relative overflow-hidden h-screen w-screen bg-slate-300">
-    <div *ngIf="!isLoggedIn" class="absolute top-3 right-3 bg-lime-700 font-semibold text-sm text-white p-2 rounded">Email Or Password are incorrect.
-
-    </div>
+    <div *ngIf="!isLoggedIn" class="absolute top-3 right-3 bg-lime-700 font-semibold text-sm text-white p-2 rounded">Email Or Password are incorrect.</div>
+    <div *ngIf="isSuccess" class="absolute top-3 right-3 bg-lime-700 font-semibold text-sm text-white p-2 rounded">Login Successfully</div>
     <div class="flex items-center justify-center w-full h-full">
         <mat-card class="login-form w-1/3 p-4">
             <form #loginForm="ngForm">
@@ -35,7 +34,7 @@
                     <button mat-raised-button color="accent" class="mx-auto" (click)="submitForm(loginForm)">Login</button>
                 </div>
                 <div class="flex justify-center mt-2">
-                    <a [routerLink]="'signup'" class="text-blue-500">You don't have account, Please Signup</a>
+                    <a [routerLink]="['/signup']" class="text-blue-500">You don't have account, Please Signup</a>
                 </div>
             </form>
         </mat-card>

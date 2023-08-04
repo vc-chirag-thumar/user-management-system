@@ -58,7 +58,6 @@ export class UserListComponent implements OnInit, AfterViewInit {
   }
 
   deleteData(id: number) {
-    this.user.id = id;
     console.log(this.user.id);
     this._userService.deleteData(id).subscribe((record) => {
       this.getUserList();

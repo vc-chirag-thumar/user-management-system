@@ -11,6 +11,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthRoutsModule } from '../routes/auth-routs/auth-routs.module';
 import { HttpClientModule } from '@angular/common/http';
 import { UserListService } from '../services/user-list.service';
+import { BrowserModule } from '@angular/platform-browser';
+
 
 
 
@@ -28,7 +30,7 @@ import { UserListService } from '../services/user-list.service';
     ],
     imports: [
         CommonModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatIconModule, MatCardModule, NgIf,
-        FormsModule, ReactiveFormsModule, AuthRoutsModule, HttpClientModule
+        FormsModule, ReactiveFormsModule, AuthRoutsModule, HttpClientModule, BrowserModule
     ]
 })
 export class AuthModule { }

@@ -4,6 +4,7 @@ import { HeaderComponent } from './header/header.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { RouterModule } from '@angular/router';
+import { MatIconModule } from '@angular/material/icon';
 
 
 @NgModule({
@@ -12,7 +13,7 @@ import { RouterModule } from '@angular/router';
     SidebarComponent
   ],
   imports: [
-    CommonModule, RouterModule
+    CommonModule, RouterModule, MatIconModule
   ],
   exports:[
     HeaderComponent,

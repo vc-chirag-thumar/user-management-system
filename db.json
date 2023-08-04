@@ -1,18 +1,6 @@
 {
   "user": [
     {
-      "id": 1,
-      "fullname": "chirag",
-      "email": "abc",
-      "password": "123"
-    },
-    {
-      "id": 2,
-      "fullname": "Raj",
-      "email": "xyz",
-      "password": "123"
-    },
-    {
       "id": 3,
       "fullname": "Vraj",
       "email": "aaa",
@@ -23,6 +11,24 @@
       "email": "vv@test.com",
       "password": "123456",
       "id": 6
+    },
+    {
+      "fullname": "hitesh",
+      "email": "abc@gmail.com",
+      "password": "123456",
+      "id": 7
+    },
+    {
+      "fullname": "",
+      "email": "",
+      "password": "sdfsdfdsf",
+      "id": 8
+    },
+    {
+      "fullname": "",
+      "email": "",
+      "password": "",
+      "id": 9
     }
   ]
 }
