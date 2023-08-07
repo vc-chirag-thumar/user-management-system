@@ -1,4 +1,7 @@
 <header class="bg-cyan-900 text-white flex items-center justify-end p-4">
     <div>Welcome, {{ person.fullname }}!</div>
-    <mat-icon class="cursor-pointer ml-2">person</mat-icon> 
+    <div class="ml-2 relative">
+        <mat-icon class="cursor-pointer" (click)="hide = !hide">person</mat-icon>
+        <button class="absolute top-full right-0 px-5 py-2 bg-teal-500 text-white" (click)="logout()" *ngIf="!hide">Logout</button>
+    </div>
 </header>

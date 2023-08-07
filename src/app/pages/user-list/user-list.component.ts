@@ -34,6 +34,9 @@ export class UserListComponent implements OnInit, AfterViewInit {
     'password',
     'action',
   ];
+  editableRowIndex: number = -1;
+
+  
   dataSource = new MatTableDataSource<UserList>();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -62,5 +65,8 @@ export class UserListComponent implements OnInit, AfterViewInit {
     this._userService.deleteData(id).subscribe((record) => {
       this.getUserList();
     });
+  }
+  editRow(index: number): void {
+    this.editableRowIndex = index;
   }
 }

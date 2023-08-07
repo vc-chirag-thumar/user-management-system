@@ -45,6 +45,7 @@ export class LoginComponent implements OnInit {
 
     if (person) {
       localStorage.setItem('person', JSON.stringify(person));
+      localStorage.setItem('token', Math.random().toString());
       this.isLoggedIn = true;
       this.isSuccess = true;
       setTimeout(() => {

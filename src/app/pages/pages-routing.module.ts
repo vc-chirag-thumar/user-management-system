@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PagesComponent } from './pages.component';
 import { UserListComponent } from './user-list/user-list.component';
+import { authGuard } from '../auth/auth.guard';
 
 const routes: Routes = [
   {
@@ -11,11 +12,13 @@ const routes: Routes = [
     children:[
       {
         path:'dashboard',
-        component:DashboardComponent
+        component:DashboardComponent,
+        canActivate: [authGuard]
       },
       {
         path:'user-list',
-        component:UserListComponent
+        component:UserListComponent,
+        canActivate: [authGuard]
       }
     ]
   }

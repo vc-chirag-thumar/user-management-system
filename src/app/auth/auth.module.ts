@@ -11,10 +11,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthRoutsModule } from '../routes/auth-routs/auth-routs.module';
 import { HttpClientModule } from '@angular/common/http';
 import { UserListService } from '../services/user-list.service';
-import { BrowserModule } from '@angular/platform-browser';
-
-
-
 
 @NgModule({
     declarations: [
@@ -30,7 +26,7 @@ import { BrowserModule } from '@angular/platform-browser';
     ],
     imports: [
         CommonModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatIconModule, MatCardModule, NgIf,
-        FormsModule, ReactiveFormsModule, AuthRoutsModule, HttpClientModule, BrowserModule
+        FormsModule, ReactiveFormsModule, AuthRoutsModule, HttpClientModule, 
     ]
 })
 export class AuthModule { }

@@ -19,16 +19,16 @@
       "id": 7
     },
     {
-      "fullname": "",
-      "email": "",
-      "password": "sdfsdfdsf",
-      "id": 8
+      "fullname": "Vivek",
+      "email": "test@abc.com",
+      "password": "123456",
+      "id": 10
     },
     {
-      "fullname": "",
-      "email": "",
-      "password": "",
-      "id": 9
+      "fullname": "Anand Kothari",
+      "email": "ak@abc.com",
+      "password": "123456",
+      "id": 11
     }
   ]
 }

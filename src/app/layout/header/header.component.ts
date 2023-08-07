@@ -1,4 +1,6 @@
+import { Token } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { User } from 'src/app/core/models/user.model';
 
 @Component({
@@ -13,6 +15,9 @@ export class HeaderComponent implements OnInit{
     email: '',
     password: ''
   };
+  hide = true;
+
+  constructor(private router:Router){}
 
   ngOnInit() {
     this.getUserData();
@@ -22,7 +27,14 @@ export class HeaderComponent implements OnInit{
     if (storedUserData) {
       this.person = JSON.parse(storedUserData);
       console.log(this.person);
-      
+    }
+  }
+  logout(){
+    const confirmation = confirm("Are you sure, You wan't to logout ?");
+    if(confirmation){
+      localStorage.removeItem('token');
+      localStorage.removeItem('person');
+      this.router.navigate(['login']);
     }
   }
 }
