@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit {
   isSuccess = false
 
   user: User = {
+    isEdit:true,
     id: 0,
     fullname: '',
     email: '',

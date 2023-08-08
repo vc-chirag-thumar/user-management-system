@@ -13,6 +13,7 @@ export class SignupComponent implements OnInit {
   // variables
   user: User = 
     {
+      isEdit:true,
       id: 0,
       fullname: '',
       email: '',

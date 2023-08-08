@@ -24,6 +24,9 @@ export class UserListService {
   deleteData(id:number):Observable<any>{
     return this.http.delete(`${this.url}/${id}`);
   }
+  updateUser(user: User): Observable<User> {
+    return this.http.patch<User>(`${this.url}/${user.id}`, user);
+  }
 }
 
 

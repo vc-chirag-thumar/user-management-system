@@ -4,6 +4,37 @@ import { MatTableDataSource } from '@angular/material/table';
 import { User, UserList } from 'src/app/core/models/user.model';
 import { UserListService } from 'src/app/services/user-list.service';
 
+
+const COLUMNS_SCHEMA = [
+  {
+    key: "id",
+    type: "number",
+    label: "Id",
+    disabled: false
+  },
+  {
+      key: "fullname",
+      type: "text",
+      label: "Full Name"
+  },
+  {
+      key: "email",
+      type: "text",
+      label: "Email",
+      disabled: false
+  },
+  {
+      key: "password",
+      type: "text",
+      label: "Password"
+  },
+  {
+    key: "isEdit",
+    type: "isEdit",
+    label: "Action"
+  }
+]
+
 @Component({
   selector: 'app-user-list',
   templateUrl: './user-list.component.html',
@@ -15,6 +46,7 @@ export class UserListComponent implements OnInit, AfterViewInit {
     fullname: '',
     email: '',
     password: '',
+    isEdit:false
   };
   userList: UserList[] = [
     {
@@ -27,22 +59,27 @@ export class UserListComponent implements OnInit, AfterViewInit {
   itemCount = 0;
   records: any[] = [];
 
-  displayedColumns: string[] = [
-    'id',
-    'fullname',
-    'email',
-    'password',
-    'action',
-  ];
-  editableRowIndex: number = -1;
-
   
+
+  // displayedColumns: string[] = [
+  //   'id',
+  //   'fullname',
+  //   'email',
+  //   'password',
+  //   'action',
+  // ];
+  
+
+  displayedColumns: string[] = COLUMNS_SCHEMA.map((col) => col.key);
+  columnsSchema: any = COLUMNS_SCHEMA;
   dataSource = new MatTableDataSource<UserList>();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   // user: any;
 
   constructor(private _userService: UserListService) {}
+
+  
 
   ngOnInit() {
     this.getUserList();
@@ -66,7 +103,9 @@ export class UserListComponent implements OnInit, AfterViewInit {
       this.getUserList();
     });
   }
-  editRow(index: number): void {
-    this.editableRowIndex = index;
+
+  editRow(row: User) {
+    this._userService.updateUser(row).subscribe(() => row.isEdit = false);
   }
+  
 }
