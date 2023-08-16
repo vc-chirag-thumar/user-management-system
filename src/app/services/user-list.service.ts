@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { User, UserList } from '../core/models/user.model';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 
 
 @Injectable({
@@ -16,6 +16,7 @@ export class UserListService {
 
   getUserData(): Observable<any> {
    return this.http.get(this.url);
+  //  .pipe<User[]>(map((data:any) => data.users));
   }
   
   postUserData(params:User): Observable<any> {

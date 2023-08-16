@@ -1,35 +1,39 @@
 {
   "user": [
     {
-      "id": 3,
-      "fullname": "Vraj",
-      "email": "aaa",
-      "password": "123",
-      "isEdit": true
-    },
-    {
-      "fullname": "Vishal Vanani",
-      "email": "vv@test.com",
-      "password": "123456",
-      "id": 6
-    },
-    {
-      "fullname": "hitesh",
-      "email": "abc@gmail.com",
-      "password": "123456",
-      "id": 7
-    },
-    {
       "fullname": "Vivek",
       "email": "test@abc.com",
-      "password": "123456",
-      "id": 10
+      "password": "123456789",
+      "id": 10,
+      "isEdit": false
     },
     {
       "fullname": "Anand Kothari",
       "email": "ak@abc.com",
       "password": "123456",
-      "id": 11
+      "id": 11,
+      "isEdit": false
+    },
+    {
+      "fullname": "Vraj",
+      "email": "aaa",
+      "password": "123",
+      "id": 12,
+      "isEdit": true
+    },
+    {
+      "fullname": "Rakesh Sojitra",
+      "email": "rs@abc.com",
+      "password": "123456",
+      "id": 13,
+      "isEdit": false
+    },
+    {
+      "fullname": "Chirag",
+      "email": "cp@abc.com",
+      "password": "123456",
+      "id": 14,
+      "isEdit": true
     }
   ]
 }

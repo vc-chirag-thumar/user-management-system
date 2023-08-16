@@ -7,6 +7,7 @@ export interface User {
 }
 
 export interface UserList {
+  isEdit: boolean;
   id: number;
   fullname: string;
   email: string;
