@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-import { User, UserList } from 'src/app/core/models/user.model';
+import { User } from 'src/app/core/models/user.model';
 import { UserListService } from 'src/app/services/user-list.service';
 
 const COLUMNS_SCHEMA = [
@@ -40,7 +40,7 @@ const COLUMNS_SCHEMA = [
   styleUrls: ['./user-list.component.scss'],
 })
 export class UserListComponent implements OnInit, AfterViewInit {
-  userList: UserList[] = [
+  userList: User[] = [
     {
       id: 0,
       fullname: '',
@@ -51,13 +51,13 @@ export class UserListComponent implements OnInit, AfterViewInit {
   ];
   itemCount = 0;
   length = 0;
-  records: any[] = [];
-  userCopy: UserList | null = null;
+  // records: any[] = [];
+  userCopy: User | null = null;
   
 
   displayedColumns: string[] = COLUMNS_SCHEMA.map((col) => col.key);
   columnsSchema: any = COLUMNS_SCHEMA;
-  dataSource = new MatTableDataSource<UserList>();
+  dataSource = new MatTableDataSource<User>();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
@@ -68,9 +68,9 @@ export class UserListComponent implements OnInit, AfterViewInit {
   }
 
   getUserList():void {
-    this._userService.getUserData().subscribe((res:any) => {
+    this._userService.getUserData().subscribe((res) => {
       this.userList = res;
-      this.userList = this.userList.map((user: UserList) => {
+      this.userList = this.userList.map((user: User) => {
         return { ...user, isEdit: false };
       });
       this.dataSource.data = this.userList;
@@ -91,12 +91,14 @@ export class UserListComponent implements OnInit, AfterViewInit {
   editRow(row: User) {
     this.userCopy = { ...row };
     this._userService.updateUser(row).subscribe(()=>{
-      row.isEdit = !row.isEdit
+      row.isEdit = !row.isEdit;
     });
   }
   saveData(row: User) {
-    this._userService.updateUser(row).subscribe(() =>{
-      row.isEdit = false
+    this._userService.updateUser(row).subscribe((updatedUser) =>{
+      row.isEdit = false;
+      localStorage.setItem('updatedUser', JSON.stringify(updatedUser));
+      // console.log(localStorage);
     });
   }
   cancelData(row:User){

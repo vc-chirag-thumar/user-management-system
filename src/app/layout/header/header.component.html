@@ -2,6 +2,6 @@
     <div>Welcome, {{ person.fullname }}!</div>
     <div class="ml-2 relative">
         <mat-icon class="cursor-pointer" (click)="hide = !hide">person</mat-icon>
-        <button class="absolute top-full right-0 px-5 py-2 bg-teal-500 text-white" (click)="logout()" *ngIf="!hide">Logout</button>
+        <button class="absolute top-[calc(100%+16px)] right-0 px-5 py-2 bg-teal-500 text-white" (click)="logout()" *ngIf="!hide">Logout</button>
     </div>
 </header>

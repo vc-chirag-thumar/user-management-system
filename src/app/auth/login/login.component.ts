@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { User, UserList } from 'src/app/core/models/user.model';
+import { User } from 'src/app/core/models/user.model';
 import { UserListService } from 'src/app/services/user-list.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { UserListService } from 'src/app/services/user-list.service';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-  userList: UserList[] = [];
+  userList: User[] = [];
   hide = true;
   isLoggedIn = true;
   isSuccess = false
@@ -51,15 +51,11 @@ export class LoginComponent implements OnInit {
       this.isSuccess = true;
       setTimeout(() => {
         this.router.navigate(['/dashboard']);
-      }, 2000);
+      }, 1000);
     }
     else {
       this.isLoggedIn = false;
     }
     param.reset();
-  }
-
-  isAuthenticated(): boolean {
-    return this.isLoggedIn;
   }
 }
