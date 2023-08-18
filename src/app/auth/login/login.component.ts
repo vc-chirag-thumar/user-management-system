@@ -21,6 +21,7 @@ export class LoginComponent implements OnInit {
     fullname: '',
     email: '',
     password: '',
+    isAdd:false
   };
 
   formValue = {

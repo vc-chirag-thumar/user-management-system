@@ -7,10 +7,15 @@ import { AuthModule } from './auth/auth.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PagesModule } from './pages/pages.module';
 import { LayoutModule } from './layout/layout.module';
+import { DialogsModule } from './dialogs/dialogs/dialogs.module';
+
+
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -18,7 +23,8 @@ import { LayoutModule } from './layout/layout.module';
     AuthModule,
     BrowserAnimationsModule,
     PagesModule,
-    LayoutModule
+    LayoutModule,
+    DialogsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

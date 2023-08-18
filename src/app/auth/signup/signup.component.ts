@@ -17,6 +17,7 @@ export class SignupComponent implements OnInit {
     fullname: '',
     email: '',
     password: '',
+    isAdd:false
   };
   userList: User[] = [];
   hide = true;

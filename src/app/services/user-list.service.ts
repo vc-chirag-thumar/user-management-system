@@ -29,4 +29,7 @@ export class UserListService {
   updateUser(user: User): Observable<User> {
     return this.http.patch<User>(`${this.url}/${user.id}`, user);
   }
+  getMaxId(id: number) {
+    return this.http.get<User[]>(`${this.url}/${id}`); // Adjust the URL accordingly
+  }
 }

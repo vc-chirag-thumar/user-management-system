@@ -1,21 +1,7 @@
 {
   "user": [
     {
-      "fullname": "Vivek",
-      "email": "test@abc.com",
-      "password": "Password",
-      "id": 10,
-      "isEdit": true
-    },
-    {
-      "fullname": "Anand Kothari",
-      "email": "ak@abc.com",
-      "password": "Password123!",
-      "id": 11,
-      "isEdit": true
-    },
-    {
-      "fullname": "Vraj",
+      "fullname": "Vraj Patel",
       "email": "aaa",
       "password": "Password123!",
       "id": 12,
@@ -29,14 +15,14 @@
       "isEdit": true
     },
     {
-      "fullname": "Chirag",
+      "fullname": "Chirag Prajapati",
       "email": "cp@abc.com",
       "password": "Password123!",
       "id": 14,
       "isEdit": true
     },
     {
-      "fullname": "Uka",
+      "fullname": "Uka Nandaniya",
       "email": "un@abc.com",
       "password": "Password123!",
       "id": 15,

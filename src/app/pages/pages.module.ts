@@ -16,6 +16,9 @@ import {MatButtonModule} from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon';
+import {MatDialogModule} from '@angular/material/dialog';
+import { DialogsModule } from '../dialogs/dialogs/dialogs.module';
+
 
 
 
@@ -37,7 +40,9 @@ import {MatIconModule} from '@angular/material/icon';
     MatFormFieldModule, 
     MatButtonModule, 
     MatCardModule,
-    MatIconModule
+    MatIconModule,
+    MatDialogModule,
+    DialogsModule
   ],
   exports:[
     DashboardComponent, 

@@ -1,3 +1,11 @@
+<div class="px-4 pt-4">
+  <mat-card>
+    <div class="flex justify-between items-center p-3">
+      <mat-card-title>User List</mat-card-title>
+      <button mat-raised-button color="primary" (click)="addRow()">Add Row</button>
+    </div>
+  </mat-card>
+</div>
 <div class="p-4">
   <div class="mat-elevation-z8">
     <table mat-table [dataSource]="dataSource">
@@ -10,6 +18,14 @@
             <div class="btn-edit" *ngSwitchCase="'isEdit'">
               <mat-icon class="cursor-pointer" (click)="editRow(user)">edit</mat-icon>
               <mat-icon class="cursor-pointer" (click)="deleteData(user.id)">delete</mat-icon>
+            </div>
+            <span *ngSwitchDefault>
+              {{ user[col.key] }}
+            </span>
+          </div>
+          <div [ngSwitch]="col.type" *ngIf="user.isAdd">
+            <div class="btn-edit" *ngSwitchCase="'isEdit'">
+              <mat-icon class="cursor-pointer" (click)="saveNewRow(newRow)">save</mat-icon>
             </div>
             <span *ngSwitchDefault>
               {{ user[col.key] }}
