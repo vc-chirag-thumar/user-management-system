@@ -5,28 +5,56 @@
       "email": "aaa",
       "password": "Password123!",
       "id": 12,
-      "isEdit": true
+      "isEdit": false,
+      "isAdd": false
     },
     {
       "fullname": "Rakesh Sojitra",
       "email": "rs@abc.com",
       "password": "Password123!",
       "id": 13,
-      "isEdit": true
+      "isEdit": false,
+      "isAdd": false
     },
     {
       "fullname": "Chirag Prajapati",
       "email": "cp@abc.com",
       "password": "Password123!",
       "id": 14,
-      "isEdit": true
+      "isEdit": false,
+      "isAdd": false
     },
     {
       "fullname": "Uka Nandaniya",
       "email": "un@abc.com",
       "password": "Password123!",
       "id": 15,
-      "isEdit": true
+      "isEdit": false,
+      "isAdd": false
+    },
+    {
+      "id": 16,
+      "fullname": "jjfjfkdf",
+      "email": "ggfgfgfg",
+      "password": "gfgfgfg",
+      "isEdit": false,
+      "isAdd": false
+    },
+    {
+      "id": 17,
+      "fullname": "fggfgf",
+      "email": "gggf",
+      "password": "ggfgfg",
+      "isEdit": false,
+      "isAdd": false
+    },
+    {
+      "id": 18,
+      "fullname": "vvffvfv",
+      "email": "",
+      "password": "fffff",
+      "isEdit": false,
+      "isAdd": false
     }
   ]
 }

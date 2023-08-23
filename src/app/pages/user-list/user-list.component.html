@@ -11,36 +11,39 @@
     <table mat-table [dataSource]="dataSource">
       <!-- Id Column -->
       <ng-container [matColumnDef]="col.key" *ngFor="let col of columnsSchema">
-        <th mat-header-cell *matHeaderCellDef> {{ col.label }} </th>
-        <td mat-cell *matCellDef="let user">
+        <th mat-header-cell *matHeaderCellDef ngClass="last:text-right" class="!bg-slate-600 text-white"> {{ col.label }} </th>
+        <td mat-cell *matCellDef="let user" ngClass="last:text-right">
 
           <div [ngSwitch]="col.type" *ngIf="!user.isEdit">
             <div class="btn-edit" *ngSwitchCase="'isEdit'">
-              <mat-icon class="cursor-pointer" (click)="editRow(user)">edit</mat-icon>
-              <mat-icon class="cursor-pointer" (click)="deleteData(user.id)">delete</mat-icon>
+              <mat-icon class="cursor-pointer text-blue-900" (click)="editRow(user)">edit</mat-icon>
+              <mat-icon class="cursor-pointer text-red-700" (click)="deleteData(user.id)">delete</mat-icon>
             </div>
             <span *ngSwitchDefault>
               {{ user[col.key] }}
             </span>
           </div>
-          <div [ngSwitch]="col.type" *ngIf="user.isAdd">
+          <div [ngSwitch]="col.type" *ngIf="user.isAdd &amp;&amp; user.isEdit &amp;&amp; !col.disabled">
             <div class="btn-edit" *ngSwitchCase="'isEdit'">
-              <mat-icon class="cursor-pointer" (click)="saveNewRow(newRow)">save</mat-icon>
+              <mat-icon class="cursor-pointer text-green-900" (click)="saveNewRow(newRow)">save</mat-icon>
             </div>
-            <span *ngSwitchDefault>
+            <mat-form-field *ngSwitchDefault>
+              <input [type]="col.type" matInput [(ngModel)]="user[col.key]" />
+            </mat-form-field>
+            <!-- <span *ngSwitchDefault>
               {{ user[col.key] }}
-            </span>
+            </span> -->
           </div>
-          <div [ngSwitch]="col.type" *ngIf="user.isEdit &amp;&amp; !col.disabled">
+          <div [ngSwitch]="col.type" *ngIf="user.isEdit &amp;&amp; !col.disabled &amp;&amp; !user.isAdd">
             <div class="btn-edit" *ngSwitchCase="'isEdit'">
-              <mat-icon class="cursor-pointer" (click)="saveData(user)">save</mat-icon>
-              <mat-icon class="cursor-pointer" (click)="cancelData(user)">cancel</mat-icon>
+              <mat-icon class="cursor-pointer text-green-900" (click)="saveData(user)">save</mat-icon>
+              <mat-icon class="cursor-pointer text-orange-500" (click)="cancelData(user)">cancel</mat-icon>
             </div>
             <mat-form-field *ngSwitchDefault>
               <input [type]="col.type" matInput [(ngModel)]="user[col.key]" />
             </mat-form-field>
           </div>
-          <div [ngSwitch]="col.disabled" *ngIf="user.isEdit &amp;&amp; col.disabled">
+          <div [ngSwitch]="col.disabled" *ngIf="user.isEdit &amp;&amp; col.disabled &amp;&amp; !user.isAdd">
             <span *ngSwitchDefault>
               {{ user[col.key] }}
             </span>
